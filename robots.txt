@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://somsoo.github.io/mbti-job-test/sitemap.xml
+Sitemap: https://mbti-job-test.enjoy-onepage.com/sitemap.xml
