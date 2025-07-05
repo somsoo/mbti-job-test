@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MBTI 직장인 성향 검사 - 무료 온라인 테스트</title>
+  <meta name="description" content="무료 MBTI 직장인 성향 검사로 나의 업무 스타일과 강점을 진단하세요. 16가지 유형별 해설과 그래프 제공. 간편하게 직장 내 성향을 알아보세요.">
+  <meta name="keywords" content="MBTI, 직장인, 성향 검사, 무료, 테스트, 성격유형, 업무, 조직, 커리어, 직업, 온라인">
+  <meta name="author" content="somsoo">
+  <link rel="canonical" href="https://somsoo.github.io/mbti-job-test/" />
+  <meta property="og:title" content="MBTI 직장인 성향 검사 - 무료 온라인 테스트">
+  <meta property="og:description" content="무료 MBTI 직장인 성향 검사로 나의 업무 스타일과 강점을 진단하세요. 16가지 유형별 해설과 그래프 제공.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://somsoo.github.io/mbti-job-test/">
+  <meta property="og:image" content="https://somsoo.github.io/mbti-job-test/images/mbti-og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MBTI 직장인 성향 검사">
+  <meta name="twitter:description" content="무료 MBTI 직장인 성향 검사로 나의 업무 스타일과 강점을 진단하세요.">
+  <meta name="twitter:image" content="https://somsoo.github.io/mbti-job-test/images/mbti-og-image.png">
+  <link rel="icon" href="/favicon.ico" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "MBTI 직장인 성향 검사",
+    "description": "무료 MBTI 직장인 성향 검사로 나의 업무 스타일과 강점을 진단하세요. 16가지 유형별 해설과 그래프 제공.",
+    "url": "https://somsoo.github.io/mbti-job-test/"
+  }
+  </script>
+  <style>
+    body {
+      font-family: "Comic Sans MS", "Apple SD Gothic Neo", sans-serif;
+      background-color: #fff8f0;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #ff7f50;
+    }
+    h2 {
+      color: #ff7f50;
+      text-align: center;
+    }
+    fieldset {
+      border: none;
+      margin: 0 0 24px 0;
+      padding: 0;
+    }
+    legend {
+      font-weight: bold;
+      color: #ff7f50;
+      margin-bottom: 10px;
+      font-size: 1.1em;
+    }
+    .question {
+      margin-bottom: 15px;
+      padding: 10px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .question-number {
+      display: inline-block;
+      font-weight: bold;
+      color: #ff7f50;
+      margin-right: 8px;
+    }
+    label {
+      display: block;
+      margin: 5px 0;
+      cursor: pointer;
+    }
+    button {
+      background-color: #ffb347;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 10px auto 0 auto;
+      display: block;
+    }
+    .hidden {
+      display: none;
+    }
+    #result {
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #fff0f5;
+      border-radius: 10px;
+    }
+    .chart-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin-bottom: 20px;
+    }
+    .chart-box {
+      width: 45%;
+      min-width: 200px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    canvas {
+      margin: auto;
+      display: block;
+    }
+    .highlight {
+      font-weight: bold;
+      color: #ff7f50;
+    }
+    .alert-message {
+      color: #d32f2f;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 10px;
+      margin-top: 0;
+    }
+    .mbti-desc {
+      background: #fff;
+      border-radius: 10px;
+      padding: 18px 16px;
+      margin-bottom: 28px;
+      font-size: 1.08em;
+      line-height: 1.7;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.06);
+    }
+    .mbti-desc strong {
+      color: #ff7f50;
+      font-size: 1.13em;
+    }
+    nav {
+      text-align: center;
+      margin-top: 40px;
+    }
+    nav a {
+      color: #ff7f50;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.95em;
+      color: #888;
+      margin-top: 40px;
+      padding: 20px 0 0 0;
+      border-top: 1px solid #eee;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+<body>
+  <main>
+    <section class="container" aria-labelledby="main-title">
+      <h1 id="main-title">MBTI 직장인 성향 검사</h1>
+      <nav aria-label="주요 메뉴">
+        <a href="/">홈</a>
+        <a href="https://www.16personalities.com/ko" target="_blank" rel="noopener">MBTI란?</a>
+        <a href="#result">결과 바로가기</a>
+      </nav>
+      <!-- 인트로 페이지 -->
+      <section id="intro-page" class="question-page" aria-label="인트로">
+        <h2>환영합니다!</h2>
+        <p>
+          이 검사는 직장 내에서의 당신의 성향을 MBTI 방식으로 진단합니다.<br>
+          각 상황에 대해 본인에게 더 가까운 행동을 선택해 주세요.<br>
+          결과는 그래프와 해설로 제공됩니다.<br><br>
+          <strong>시작하기 버튼을 눌러주세요!</strong>
+        </p>
+        <button type="button" onclick="startSurvey()" aria-label="검사 시작하기">시작하기</button>
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-2228289204702106"
+            data-ad-slot="2369206483"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+      </section>
+      <form id="mbti-form" autocomplete="off" aria-label="MBTI 설문지">
+        <!-- EI -->
+        <section id="page-ei" class="question-page hidden" aria-label="외향/내향">
+          <fieldset>
+            <legend>외향(E) / 내향(I)</legend>
+            <!-- EI 질문 1~10 (생략 없이 모두 포함) -->
+            <div class="question"><span class="question-number">1.</span>
+              <label for="ei1e"><input id="ei1e" type="radio" name="ei1" value="E" /> 먼저 다가가서 인사한다</label>
+              <label for="ei1i"><input id="ei1i" type="radio" name="ei1" value="I" /> 상대가 다가오길 기다린다</label>
+            </div>
+            <div class="question"><span class="question-number">2.</span>
+              <label for="ei2e"><input id="ei2e" type="radio" name="ei2" value="E" /> 자신의 의견을 자주 말한다</label>
+              <label for="ei2i"><input id="ei2i" type="radio" name="ei2" value="I" /> 필요한 경우에만 의견을 낸다</label>
+            </div>
+            <div class="question"><span class="question-number">3.</span>
+              <label for="ei3e"><input id="ei3e" type="radio" name="ei3" value="E" /> 동료들과 함께 먹는다</label>
+              <label for="ei3i"><input id="ei3i" type="radio" name="ei3" value="I" /> 혼자 먹거나 소수와 먹는다</label>
+            </div>
+            <div class="question"><span class="question-number">4.</span>
+              <label for="ei4e"><input id="ei4e" type="radio" name="ei4" value="E" /> 자주 참여한다</label>
+              <label for="ei4i"><input id="ei4i" type="radio" name="ei4" value="I" /> 가끔만 참여한다</label>
+            </div>
+            <div class="question"><span class="question-number">5.</span>
+              <label for="ei5e"><input id="ei5e" type="radio" name="ei5" value="E" /> 먼저 다가가서 말을 건다</label>
+              <label for="ei5i"><input id="ei5i" type="radio" name="ei5" value="I" /> 조용히 지켜본다</label>
+            </div>
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-2228289204702106"
+                data-ad-slot="8743043142"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <div class="question"><span class="question-number">6.</span>
+              <label for="ei6e"><input id="ei6e" type="radio" name="ei6" value="E" /> 팀원들과 먼저 소통한다</label>
+              <label for="ei6i"><input id="ei6i" type="radio" name="ei6" value="I" /> 혼자 계획을 세운다</label>
+            </div>
+            <div class="question"><span class="question-number">7.</span>
+              <label for="ei7e"><input id="ei7e" type="radio" name="ei7" value="E" /> 바로 동료에게 도움을 요청한다</label>
+              <label for="ei7i"><input id="ei7i" type="radio" name="ei7" value="I" /> 혼자 해결해보려 한다</label>
+            </div>
+            <div class="question"><span class="question-number">8.</span>
+              <label for="ei8e"><input id="ei8e" type="radio" name="ei8" value="E" /> 다양한 사람들과 대화한다</label>
+              <label for="ei8i"><input id="ei8i" type="radio" name="ei8" value="I" /> 친한 동료와만 대화한다</label>
+            </div>
+            <div class="question"><span class="question-number">9.</span>
+              <label for="ei9e"><input id="ei9e" type="radio" name="ei9" value="E" /> 먼저 자기소개를 한다</label>
+              <label for="ei9i"><input id="ei9i" type="radio" name="ei9" value="I" /> 조용히 분위기를 살핀다</label>
+            </div>
+            <div class="question"><span class="question-number">10.</span>
+              <label for="ei10e"><input id="ei10e" type="radio" name="ei10" value="E" /> 관심이 많다</label>
+              <label for="ei10i"><input id="ei10i" type="radio" name="ei10" value="I" /> 별로 관심이 없다</label>
+            </div>
+            <div id="alert-ei" class="alert-message hidden" role="alert"></div>
+            <button type="button" onclick="nextPage('ei', 'sn', 10)" aria-label="다음(SN 파트로)">다음</button>
+          </fieldset>
+        </section>
+        <!-- SN -->
+        <section id="page-sn" class="question-page hidden" aria-label="감각/직관">
+          <fieldset>
+            <legend>감각(S) / 직관(N)</legend>
+            <div class="question"><span class="question-number">1.</span>
+              <label for="sn1s"><input id="sn1s" type="radio" name="sn1" value="S" /> 매뉴얼을 꼼꼼히 읽는다</label>
+              <label for="sn1n"><input id="sn1n" type="radio" name="sn1" value="N" /> 전체적인 흐름을 먼저 파악한다</label>
+            </div>
+            <div class="question"><span class="question-number">2.</span>
+              <label for="sn2s"><input id="sn2s" type="radio" name="sn2" value="S" /> 구체적인 수치와 데이터를 중시한다</label>
+              <label for="sn2n"><input id="sn2n" type="radio" name="sn2" value="N" /> 큰 그림과 핵심 메시지를 중시한다</label>
+            </div>
+            <div class="question"><span class="question-number">3.</span>
+              <label for="sn3s"><input id="sn3s" type="radio" name="sn3" value="S" /> 기존 방식을 따르는 것이 편하다</label>
+              <label for="sn3n"><input id="sn3n" type="radio" name="sn3" value="N" /> 새로운 방식을 시도해보고 싶다</label>
+            </div>
+            <div class="question"><span class="question-number">4.</span>
+              <label for="sn4s"><input id="sn4s" type="radio" name="sn4" value="S" /> 사실과 근거를 중심으로 작성한다</label>
+              <label for="sn4n"><input id="sn4n" type="radio" name="sn4" value="N" /> 아이디어와 전망을 중심으로 작성한다</label>
+            </div>
+            <div class="question"><span class="question-number">5.</span>
+              <label for="sn5s"><input id="sn5s" type="radio" name="sn5" value="S" /> 현재 상황에 집중한다</label>
+              <label for="sn5n"><input id="sn5n" type="radio" name="sn5" value="N" /> 미래의 가능성을 생각한다</label>
+            </div>
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-2228289204702106"
+                data-ad-slot="8743043142"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <div class="question"><span class="question-number">6.</span>
+              <label for="sn6s"><input id="sn6s" type="radio" name="sn6" value="S" /> 세부사항까지 꼼꼼히 본다</label>
+              <label for="sn6n"><input id="sn6n" type="radio" name="sn6" value="N" /> 필요한 부분만 빠르게 본다</label>
+            </div>
+            <div class="question"><span class="question-number">7.</span>
+              <label for="sn7s"><input id="sn7s" type="radio" name="sn7" value="S" /> 실현 가능한 아이디어를 낸다</label>
+              <label for="sn7n"><input id="sn7n" type="radio" name="sn7" value="N" /> 혁신적이고 새로운 아이디어를 낸다</label>
+            </div>
+            <div class="question"><span class="question-number">8.</span>
+              <label for="sn8s"><input id="sn8s" type="radio" name="sn8" value="S" /> 구체적인 실행 방안을 제시한다</label>
+              <label for="sn8n"><input id="sn8n" type="radio" name="sn8" value="N" /> 방향성과 비전을 제시한다</label>
+            </div>
+            <div class="question"><span class="question-number">9.</span>
+              <label for="sn9s"><input id="sn9s" type="radio" name="sn9" value="S" /> 실제 적용 방법을 중시한다</label>
+              <label for="sn9n"><input id="sn9n" type="radio" name="sn9" value="N" /> 이론적 배경을 중시한다</label>
+            </div>
+            <div class="question"><span class="question-number">10.</span>
+              <label for="sn10s"><input id="sn10s" type="radio" name="sn10" value="S" /> 현재의 문제 해결에 집중한다</label>
+              <label for="sn10n"><input id="sn10n" type="radio" name="sn10" value="N" /> 미래의 변화에 대비한다</label>
+            </div>
+            <div id="alert-sn" class="alert-message hidden" role="alert"></div>
+            <button type="button" onclick="nextPage('sn', 'tf', 10)" aria-label="다음(TF 파트로)">다음</button>
+          </fieldset>
+        </section>
+        <!-- TF -->
+        <section id="page-tf" class="question-page hidden" aria-label="사고/감정">
+          <fieldset>
+            <legend>사고(T) / 감정(F)</legend>
+            <div class="question"><span class="question-number">1.</span>
+              <label for="tf1t"><input id="tf1t" type="radio" name="tf1" value="T" /> 논리적으로 설득한다</label>
+              <label for="tf1f"><input id="tf1f" type="radio" name="tf1" value="F" /> 상대의 감정을 배려한다</label>
+            </div>
+            <div class="question"><span class="question-number">2.</span>
+              <label for="tf2t"><input id="tf2t" type="radio" name="tf2" value="T" /> 바로 지적한다</label>
+              <label for="tf2f"><input id="tf2f" type="radio" name="tf2" value="F" /> 상대의 기분을 생각해 부드럽게 말한다</label>
+            </div>
+            <div class="question"><span class="question-number">3.</span>
+              <label for="tf3t"><input id="tf3t" type="radio" name="tf3" value="T" /> 객관적으로 점수를 매긴다</label>
+              <label for="tf3f"><input id="tf3f" type="radio" name="tf3" value="F" /> 상대의 노력을 고려한다</label>
+            </div>
+            <div class="question"><span class="question-number">4.</span>
+              <label for="tf4t"><input id="tf4t" type="radio" name="tf4" value="T" /> 이성적으로 판단한다</label>
+              <label for="tf4f"><input id="tf4f" type="radio" name="tf4" value="F" /> 자신의 느낌을 우선한다</label>
+            </div>
+            <div class="question"><span class="question-number">5.</span>
+              <label for="tf5t"><input id="tf5t" type="radio" name="tf5" value="T" /> 문제의 원인을 분석한다</label>
+              <label for="tf5f"><input id="tf5f" type="radio" name="tf5" value="F" /> 관계 회복을 우선한다</label>
+            </div>
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-2228289204702106"
+                data-ad-slot="8743043142"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <div class="question"><span class="question-number">6.</span>
+              <label for="tf6t"><input id="tf6t" type="radio" name="tf6" value="T" /> 효율성을 중시한다</label>
+              <label for="tf6f"><input id="tf6f" type="radio" name="tf6" value="F" /> 동료의 상황을 고려한다</label>
+            </div>
+            <div class="question"><span class="question-number">7.</span>
+              <label for="tf7t"><input id="tf7t" type="radio" name="tf7" value="T" /> 논리적인 근거를 중시한다</label>
+              <label for="tf7f"><input id="tf7f" type="radio" name="tf7" value="F" /> 모두의 의견을 존중한다</label>
+            </div>
+            <div class="question"><span class="question-number">8.</span>
+              <label for="tf8t"><input id="tf8t" type="radio" name="tf8" value="T" /> 해결책을 제시한다</label>
+              <label for="tf8f"><input id="tf8f" type="radio" name="tf8" value="F" /> 공감하며 들어준다</label>
+            </div>
+            <div class="question"><span class="question-number">9.</span>
+              <label for="tf9t"><input id="tf9t" type="radio" name="tf9" value="T" /> 논리적으로 문제를 제기한다</label>
+              <label for="tf9f"><input id="tf9f" type="radio" name="tf9" value="F" /> 모두가 불편해하지 않는지 살핀다</label>
+            </div>
+            <div class="question"><span class="question-number">10.</span>
+              <label for="tf10t"><input id="tf10t" type="radio" name="tf10" value="T" /> 솔직하게 말한다</label>
+              <label for="tf10f"><input id="tf10f" type="radio" name="tf10" value="F" /> 상대의 기분을 배려한다</label>
+            </div>
+            <div id="alert-tf" class="alert-message hidden" role="alert"></div>
+            <button type="button" onclick="nextPage('tf', 'jp', 10)" aria-label="다음(JP 파트로)">다음</button>
+          </fieldset>
+        </section>
+        <!-- JP -->
+        <section id="page-jp" class="question-page hidden" aria-label="판단/인식">
+          <fieldset>
+            <legend>판단(J) / 인식(P)</legend>
+            <div class="question"><span class="question-number">1.</span>
+              <label for="jp1j"><input id="jp1j" type="radio" name="jp1" value="J" /> 미리 세부 계획을 세운다</label>
+              <label for="jp1p"><input id="jp1p" type="radio" name="jp1" value="P" /> 전체만 정하고 유동적으로 한다</label>
+            </div>
+            <div class="question"><span class="question-number">2.</span>
+              <label for="jp2j"><input id="jp2j" type="radio" name="jp2" value="J" /> 미리 끝내는 편이다</label>
+              <label for="jp2p"><input id="jp2p" type="radio" name="jp2" value="P" /> 마감 직전에 집중한다</label>
+            </div>
+            <div class="question"><span class="question-number">3.</span>
+              <label for="jp3j"><input id="jp3j" type="radio" name="jp3" value="J" /> 다이어리나 앱으로 한다</label>
+              <label for="jp3p"><input id="jp3p" type="radio" name="jp3" value="P" /> 머릿속으로 대략만 생각한다</label>
+            </div>
+            <div class="question"><span class="question-number">4.</span>
+              <label for="jp4j"><input id="jp4j" type="radio" name="jp4" value="J" /> 계획표를 만들어 진행한다</label>
+              <label for="jp4p"><input id="jp4p" type="radio" name="jp4" value="P" /> 변화에 맞게 유동적으로 한다</label>
+            </div>
+            <div class="question"><span class="question-number">5.</span>
+              <label for="jp5j"><input id="jp5j" type="radio" name="jp5" value="J" /> 충분히 고민하고 결정한다</label>
+              <label for="jp5p"><input id="jp5p" type="radio" name="jp5" value="P" /> 빠르게 결정하고 필요하면 수정한다</label>
+            </div>
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-2228289204702106"
+                data-ad-slot="8743043142"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <div class="question"><span class="question-number">6.</span>
+              <label for="jp6j"><input id="jp6j" type="radio" name="jp6" value="J" /> 자주 정리한다</label>
+              <label for="jp6p"><input id="jp6p" type="radio" name="jp6" value="P" /> 필요할 때만 정리한다</label>
+            </div>
+            <div class="question"><span class="question-number">7.</span>
+              <label for="jp7j"><input id="jp7j" type="radio" name="jp7" value="J" /> 우선순위를 정해 처리한다</label>
+              <label for="jp7p"><input id="jp7p" type="radio" name="jp7" value="P" /> 하고 싶은 것부터 한다</label>
+            </div>
+            <div class="question"><span class="question-number">8.</span>
+              <label for="jp8j"><input id="jp8j" type="radio" name="jp8" value="J" /> 미리 일정을 확인한다</label>
+              <label for="jp8p"><input id="jp8p" type="radio" name="jp8" value="P" /> 즉흥적으로 결정한다</label>
+            </div>
+            <div class="question"><span class="question-number">9.</span>
+              <label for="jp9j"><input id="jp9j" type="radio" name="jp9" value="J" /> 역할을 미리 정한다</label>
+              <label for="jp9p"><input id="jp9p" type="radio" name="jp9" value="P" /> 유동적으로 역할을 나눈다</label>
+            </div>
+            <div class="question"><span class="question-number">10.</span>
+              <label for="jp10j"><input id="jp10j" type="radio" name="jp10" value="J" /> 불편함을 느낀다</label>
+              <label for="jp10p"><input id="jp10p" type="radio" name="jp10" value="P" /> 새로운 기회로 생각한다</label>
+            </div>
+            <div id="alert-jp" class="alert-message hidden" role="alert"></div>
+            <button type="submit" aria-label="결과 보기">결과 보기</button>
+          </fieldset>
+        </section>
+      </form>
+      <section id="result" class="hidden" aria-live="polite"></section>
+    </section>
+    <footer>
+      <nav aria-label="바닥글 메뉴">
+        <a href="/">홈</a>
+        <a href="https://www.16personalities.com/ko" target="_blank" rel="noopener">MBTI 소개</a>
+        <a href="mailto:contact@yourdomain.com">문의</a>
+      </nav>
+      <small>&copy; 2025 somsoo. All rights reserved.</small>
+    </footer>
+  </main>
+  <script>
+    function startSurvey() {
+      document.getElementById('intro-page').classList.add('hidden');
+      showPage('ei');
+    }
+    function showPage(type) {
+      document.querySelectorAll('.question-page').forEach(page => page.classList.add('hidden'));
+      document.getElementById('page-' + type).classList.remove('hidden');
+    }
+    function nextPage(current, next, numQuestions) {
+      const names = [];
+      for (let i = 1; i <= numQuestions; i++) {
+        names.push(current + i);
+      }
+      let allAnswered = true;
+      for (const name of names) {
+        if (!document.querySelector(`input[name="${name}"]:checked`)) {
+          allAnswered = false;
+          break;
+        }
+      }
+      const alertDiv = document.getElementById('alert-' + current);
+      if (!allAnswered) {
+        alertDiv.textContent = "모든 문항에 답변해 주세요!";
+        alertDiv.classList.remove('hidden');
+        return;
+      } else {
+        alertDiv.classList.add('hidden');
+      }
+      showPage(next);
+    }
+    function renderDonutChart(ctx, labels, data, colors) {
+      return new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: labels,
+          datasets: [{
+            data: data,
+            backgroundColor: colors,
+            borderWidth: 2,
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              display: true,
+              position: 'bottom',
+              labels: {
+                font: { size: 14 }
+              }
+            }
+          },
+          cutout: '70%',
+        }
+      });
+    }
+    // 16유형 해설
+    const descriptions = {
+      ISTJ: `<strong>ISTJ (현실주의자형)</strong><br>ISTJ는 신뢰와 책임의 상징으로, 조직 내에서 체계적이고 논리적인 업무 수행으로 두각을 나타냅니다. 규칙과 절차를 중요시하며, 주어진 일을 꼼꼼하게 완수하는 모습으로 동료들에게 신뢰를 얻습니다.<br><br><strong>업무 강점</strong>: 정확성과 조직력을 바탕으로 복잡한 프로젝트를 안정적으로 이끌며, 변화보다는 검증된 방식을 선호합니다.<br><strong>성장 전략</strong>: 변화하는 환경에도 열린 마음을 갖고, 새로운 시도에 유연하게 적응하는 연습이 필요합니다.<br><strong>리더십/팔로워십</strong>: 실무형 리더로서 팀원들에게 신뢰를 주며, 명확한 지시와 기준을 제시합니다.<br><strong>조직 적응</strong>: 지나친 원칙주의로 인해 팀원들과의 소통이 경직되지 않도록 주의하세요.<br><strong>실질적 조언</strong>: 세부사항에 집중하는 장점을 살리되, 때로는 큰 그림도 함께 고려하면 더 큰 성과를 낼 수 있습니다.`,
+      ISFJ: `<strong>ISFJ (수호자형)</strong><br>ISFJ는 헌신적이고 책임감이 강한 유형으로, 조직 내에서 세심한 배려와 지원으로 팀에 큰 기여를 합니다. 동료의 감정과 필요를 잘 살피며, 안정적인 환경을 선호합니다.<br><br><strong>업무 강점</strong>: 꼼꼼함과 성실함, 조직 내에서 조용히 지원하는 역할을 잘 수행합니다.<br><strong>성장 전략</strong>: 자신의 의견을 더 자주 표현하고, 변화에도 유연하게 대처해 보세요.<br><strong>리더십/팔로워십</strong>: 팀원들의 신뢰를 바탕으로 실질적인 리더십을 발휘할 수 있습니다.<br><strong>조직 적응</strong>: 지나친 자기 희생으로 스트레스를 받지 않도록 주의하세요.<br><strong>실질적 조언</strong>: 자신만의 경계를 세우고, 자기계발에도 신경 쓰는 것이 중요합니다.`,
+      INFJ: `<strong>INFJ (옹호자형)</strong><br>INFJ는 조직 내에서 의미와 가치를 추구하며, 깊이 있는 통찰력과 배려로 팀에 긍정적 영향을 미칩니다. 조용하지만 강한 신념으로, 동료의 감정을 세심하게 살피고, 큰 그림을 그리는 데 능합니다.<br><br><strong>업무 강점</strong>: 장기적인 프로젝트나 사회적 가치가 있는 일에 큰 동기를 느낍니다.<br><strong>성장 전략</strong>: 자신의 가치와 목표를 명확히 하고, 팀 내에서 조율자 역할을 맡아보세요.<br><strong>리더십/팔로워십</strong>: 조용한 리더십으로 팀원들에게 신뢰를 주며, 갈등 상황에서 중재자로 활약합니다.<br><strong>조직 적응</strong>: 완벽주의로 인한 스트레스를 줄이고, 유연한 사고를 기르세요.<br><strong>실질적 조언</strong>: 자신의 감정도 소홀히 하지 말고, 때로는 현실적인 접근도 필요합니다.`,
+      INTJ: `<strong>INTJ (전략가형)</strong><br>INTJ는 전략적 사고와 분석력으로 복잡한 문제를 해결하는 데 탁월합니다. 독립적이고 자기 주도적이며, 장기적인 비전을 가지고 조직을 이끕니다.<br><br><strong>업무 강점</strong>: 효율성과 생산성을 중시하며, 혁신과 변화를 주도합니다.<br><strong>성장 전략</strong>: 동료의 의견을 경청하고, 소통의 시간을 충분히 가지세요.<br><strong>리더십/팔로워십</strong>: 전략적 리더로서 팀의 방향성을 제시하지만, 때로는 독단적으로 비칠 수 있습니다.<br><strong>조직 적응</strong>: 팀원들과의 소통을 강화하고, 감정적 신호에도 민감해질 필요가 있습니다.<br><strong>실질적 조언</strong>: 큰 그림과 세부 실행을 균형 있게 조율하세요.`,
+      ISTP: `<strong>ISTP (장인형)</strong><br>ISTP는 실용적이고 분석적인 사고로 문제를 신속하게 해결합니다. 독립적으로 일하는 것을 선호하며, 위기 상황에서 침착하게 대처합니다.<br><br><strong>업무 강점</strong>: 기술적·실무적 문제 해결에 강점이 있으며, 새로운 도구와 시스템을 빠르게 익힙니다.<br><strong>성장 전략</strong>: 팀원들과의 소통과 협업 능력을 키우세요.<br><strong>리더십/팔로워십</strong>: 위기 상황에서 리더십을 발휘할 수 있습니다.<br><strong>조직 적응</strong>: 장기적인 목표 설정과 꾸준함을 기르는 연습이 필요합니다.<br><strong>실질적 조언</strong>: 반복 업무에 쉽게 싫증을 내지 않도록, 흥미를 찾는 방법을 고민해보세요.`,
+      ISFP: `<strong>ISFP (모험가형)</strong><br>ISFP는 감각적이고 유연하며, 조화로운 업무 환경을 선호합니다. 실제 경험을 통해 배우는 것을 즐기고, 팀 내에서 조용히 지원하는 역할을 잘 수행합니다.<br><br><strong>업무 강점</strong>: 실용적이고 창의적인 업무에서 강점을 보이며, 동료의 감정에 민감하게 반응합니다.<br><strong>성장 전략</strong>: 자신의 감정과 욕구를 솔직하게 표현하세요.<br><strong>리더십/팔로워십</strong>: 조용한 팔로워십으로 팀에 안정감을 줍니다.<br><strong>조직 적응</strong>: 중요한 결정에서는 감정에만 치우치지 않도록 주의하세요.<br><strong>실질적 조언</strong>: 자신의 강점을 팀에 적극적으로 알리는 연습을 해보세요.`,
+      INFP: `<strong>INFP (중재자형)</strong><br>INFP는 자신의 가치와 신념을 지키며, 조직 내에서 의미 있는 변화를 추구합니다. 창의력과 통찰력으로 문제를 바라보고, 동료의 감정에 깊이 공감합니다.<br><br><strong>업무 강점</strong>: 창의적이고 장기적인 프로젝트에서 최고의 성과를 냅니다.<br><strong>성장 전략</strong>: 자신의 아이디어와 가치를 적극적으로 표현하고, 현실적인 계획을 세워 실천하는 습관을 들이세요.<br><strong>리더십/팔로워십</strong>: 조용한 리더십과 진심 어린 조언으로 팀에 기여합니다.<br><strong>조직 적응</strong>: 완벽주의로 인한 자기비판을 줄이고, 팀의 목표와 현실적인 요구도 함께 고려하세요.<br><strong>실질적 조언</strong>: 감정에만 치우치지 말고, 논리적 근거를 함께 제시하면 설득력이 높아집니다.`,
+      INTP: `<strong>INTP (논리술사형)</strong><br>INTP는 논리적 사고와 창의적 문제 해결 능력이 뛰어나며, 새로운 아이디어를 실험하는 것을 즐깁니다. 자유로운 환경에서 최고의 역량을 발휘합니다.<br><br><strong>업무 강점</strong>: 복잡한 개념을 이해하고 설명하는 데 강점이 있으며, 혁신적인 해결책을 제시합니다.<br><strong>성장 전략</strong>: 팀 내에서 자신의 논리를 명확하게 전달하는 연습도 필요합니다.<br><strong>리더십/팔로워십</strong>: 브레인스토밍이나 아이디어 회의에서 큰 역할을 할 수 있습니다.<br><strong>조직 적응</strong>: 현실적인 부분도 함께 고려하며, 팀원들과의 소통을 소홀히 하지 마세요.<br><strong>실질적 조언</strong>: 실행력과 꾸준함을 기르는 것이 중요합니다.`,
+      ESTP: `<strong>ESTP (사업가형)</strong><br>ESTP는 실제 사례와 연결된 업무에서 흥미를 느끼며, 즉각적인 행동과 반응이 강점입니다. 도전적인 업무에 적극적으로 참여하고, 변화에 빠르게 적응합니다.<br><br><strong>업무 강점</strong>: 위기 상황에서 침착하게 대처하며, 현장감 있는 리더십을 보입니다.<br><strong>성장 전략</strong>: 장기적인 계획에도 신경을 쓰고, 감정 표현에 신경 쓰세요.<br><strong>리더십/팔로워십</strong>: 추진력 있는 리더십으로 팀을 이끌 수 있습니다.<br><strong>조직 적응</strong>: 즉흥적인 결정이 잦아질 수 있으니, 중요한 일에는 신중함도 필요합니다.<br><strong>실질적 조언</strong>: 팀원들과의 소통을 통해 더 큰 시너지를 만들어보세요.`,
+      ESFP: `<strong>ESFP (연예인형)</strong><br>ESFP는 사교적이고 활동적이며, 동료들과 즐겁게 일하는 환경을 선호합니다. 즉각적인 피드백과 반응을 중요하게 생각하며, 팀워크와 협력을 통해 성과를 높입니다.<br><br><strong>업무 강점</strong>: 새로운 경험과 도전을 즐기고, 변화에 빠르게 적응합니다.<br><strong>성장 전략</strong>: 다양한 프로젝트에 참여해 경험을 쌓으세요.<br><strong>리더십/팔로워십</strong>: 팀 분위기를 밝게 만드는 역할을 잘 수행합니다.<br><strong>조직 적응</strong>: 즉흥적인 결정이 잦아질 수 있으니, 중요한 일에는 신중함도 필요합니다.<br><strong>실질적 조언</strong>: 자신의 에너지를 긍정적으로 발산하세요.`,
+      ENFP: `<strong>ENFP (활동가형)</strong><br>ENFP는 창의적이고 열정적이며, 새로운 아이디어와 변화를 즐깁니다. 다양한 사람들과의 소통을 통해 에너지를 얻고, 팀워크와 협력을 중요하게 생각합니다.<br><br><strong>업무 강점</strong>: 반복적이고 획일적인 업무보다는, 변화가 많고 창의적인 프로젝트에서 큰 만족을 느낍니다.<br><strong>성장 전략</strong>: 자신의 아이디어를 적극적으로 제안하고, 새로운 방식의 업무에도 도전해 보세요.<br><strong>리더십/팔로워십</strong>: 팀 내에서 영감을 주는 동료로, 긍정적인 영향을 미칩니다.<br><strong>조직 적응</strong>: 감정 기복이 심할 수 있으니, 자기 관리에 신경 쓰세요.<br><strong>실질적 조언</strong>: 중요한 결정을 내릴 때는 충분히 고민한 뒤 실행하세요.`,
+      ENTP: `<strong>ENTP (변론가형)</strong><br>ENTP는 변화와 도전을 즐기며, 창의적인 문제 해결 능력을 발휘합니다. 토론과 아이디어 교환을 통해 성장하며, 다양한 프로젝트에 적극적으로 참여합니다.<br><br><strong>업무 강점</strong>: 새로운 방식과 자료를 적극적으로 활용하며, 유연하게 변화에 대처합니다.<br><strong>성장 전략</strong>: 자신의 아이디어를 논리적으로 정리해 팀에 제안하세요.<br><strong>리더십/팔로워십</strong>: 브레인스토밍과 혁신적인 프로젝트에서 리더십을 발휘할 수 있습니다.<br><strong>조직 적응</strong>: 우선순위를 정해 실천하는 습관을 들이세요.<br><strong>실질적 조언</strong>: 집중력을 유지하고, 실행력을 기르는 것이 중요합니다.`,
+      ESTJ: `<strong>ESTJ (경영자형)</strong><br>ESTJ는 체계적이고 실용적인 업무 목표를 세우고, 리더십을 발휘해 팀을 이끌어 갑니다. 효율성과 생산성을 중시하며, 명확한 지시와 피드백을 제공합니다.<br><br><strong>업무 강점</strong>: 도전적인 과제에 적극적으로 참여하며, 팀의 목표 달성에 집중합니다.<br><strong>성장 전략</strong>: 팀원들의 의견도 경청하고, 감정 표현에도 신경 써 보세요.<br><strong>리더십/팔로워십</strong>: 명확한 기준과 방향성을 제시하는 리더십이 강점입니다.<br><strong>조직 적응</strong>: 지나친 통제나 독단으로 팀 분위기를 해치지 않도록 주의하세요.<br><strong>실질적 조언</strong>: 유연한 사고와 소통을 통해 더 큰 리더십을 발휘할 수 있습니다.`,
+      ESFJ: `<strong>ESFJ (집정관형)</strong><br>ESFJ는 협동적인 환경에서 팀원과 함께 일하면 효과적입니다. 사람들과의 관계를 중시하고 조화를 추구하며, 긍정적인 분위기를 만들어 업무 효율을 높입니다.<br><br><strong>업무 강점</strong>: 팀워크와 소통을 통해 성과를 높이고, 동료들의 감정을 잘 이해하고 배려합니다.<br><strong>성장 전략</strong>: 자신의 감정도 소홀히 하지 말고, 자기계발에도 신경 쓰세요.<br><strong>리더십/팔로워십</strong>: 팀 내에서 신뢰받는 리더와 조율자 역할을 잘 수행합니다.<br><strong>조직 적응</strong>: 타인의 기대에 너무 맞추려다 자신을 잃지 않도록 주의하세요.<br><strong>실질적 조언</strong>: 피드백을 객관적으로 받아들이고, 변화에도 열린 마음을 가지세요.`,
+      ENFJ: `<strong>ENFJ (선도자형)</strong><br>ENFJ는 팀워크와 소통에 능하며, 타인의 성장과 발전을 돕는 데 큰 보람을 느낍니다. 리더십이 뛰어나고, 긍정적인 분위기를 조성하는 데 탁월합니다.<br><br><strong>업무 강점</strong>: 팀원들의 의견을 경청하고 조율하며, 모두가 함께 성장할 수 있는 환경을 만듭니다.<br><strong>성장 전략</strong>: 리더십을 발휘해 팀을 이끌어 보세요.<br><strong>리더십/팔로워십</strong>: 카리스마와 공감 능력으로 팀을 하나로 모읍니다.<br><strong>조직 적응</strong>: 타인의 감정에 너무 신경 쓰다 보면 자신의 감정을 소홀히 할 수 있으니, 자기 관리에도 신경 쓰세요.<br><strong>실질적 조언</strong>: 피드백을 성장의 기회로 삼으세요.`,
+      ENTJ: `<strong>ENTJ (지휘관형)</strong><br>ENTJ는 강한 추진력과 전략적 사고로 조직 내에서 리더십을 발휘하는 유형입니다. 목표 달성을 위해 체계적으로 계획하고, 논리적이고 효율적인 방식으로 팀을 이끌어 갑니다.<br><br><strong>업무 강점</strong>: 명확한 목표 설정과 빠른 의사결정, 혁신적인 변화 추진에 능합니다.<br><strong>성장 전략</strong>: 동료의 의견을 경청하고, 감정적인 부분도 고려하는 균형 잡힌 리더십을 연습하세요.<br><strong>리더십/팔로워십</strong>: 비전과 방향성을 제시하는 카리스마 있는 리더십이 강점입니다.<br><strong>조직 적응</strong>: 때로는 지나친 추진력으로 팀원에게 부담을 줄 수 있으니, 소통과 배려를 신경 쓰세요.<br><strong>실질적 조언</strong>: 논리와 추진력에 더해 팀원들의 동기와 감정도 함께 살피면 더욱 강력한 리더가 될 수 있습니다.`
+    };
+    function highlightPair(aLabel, aCount, bLabel, bCount) {
+      const total = aCount + bCount;
+      const aPercent = total === 0 ? 0 : Math.round((aCount / total) * 100);
+      const bPercent = total === 0 ? 0 : Math.round((bCount / total) * 100);
+      if (aPercent >= bPercent) {
+        return `<span class="highlight">${aLabel} ${aPercent}%</span> / ${bLabel} ${bPercent}%`;
+      } else {
+        return `${aLabel} ${aPercent}% / <span class="highlight">${bLabel} ${bPercent}%</span>`;
+      }
+    }
+    document.getElementById('mbti-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      let allAnswered = true;
+      for (let i = 1; i <= 10; i++) {
+        if (!document.querySelector(`input[name="jp${i}"]:checked`)) {
+          allAnswered = false;
+          break;
+        }
+      }
+      const alertDiv = document.getElementById('alert-jp');
+      if (!allAnswered) {
+        alertDiv.textContent = "모든 문항에 답변해 주세요!";
+        alertDiv.classList.remove('hidden');
+        return;
+      } else {
+        alertDiv.classList.add('hidden');
+      }
+      const counts = { E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 };
+      document.querySelectorAll('input[type=radio]:checked').forEach(input => {
+        counts[input.value]++;
+      });
+      const mbti =
+        (counts['E'] > counts['I'] ? 'E' : 'I') +
+        (counts['S'] > counts['N'] ? 'S' : 'N') +
+        (counts['T'] > counts['F'] ? 'T' : 'F') +
+        (counts['J'] > counts['P'] ? 'J' : 'P');
+      let chartHtml = `
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-2228289204702106"
+            data-ad-slot="4803798137"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+        <h2>당신의 MBTI는 <span class="highlight">${mbti}</span>입니다!</h2>
+        <div class="mbti-desc">${descriptions[mbti] || "아직 준비 중인 해설입니다."}</div>
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-2228289204702106"
+            data-ad-slot="3171701006"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+        <div class="chart-container">
+          <div class="chart-box">
+            <canvas id="chart-ei" width="180" height="180"></canvas>
+            <div><strong>외향(E) / 내향(I)</strong></div>
+            <div>${highlightPair('E', counts['E'], 'I', counts['I'])}</div>
+          </div>
+          <div class="chart-box">
+            <canvas id="chart-sn" width="180" height="180"></canvas>
+            <div><strong>감각(S) / 직관(N)</strong></div>
+            <div>${highlightPair('S', counts['S'], 'N', counts['N'])}</div>
+          </div>
+          <div class="chart-box">
+            <canvas id="chart-tf" width="180" height="180"></canvas>
+            <div><strong>사고(T) / 감정(F)</strong></div>
+            <div>${highlightPair('T', counts['T'], 'F', counts['F'])}</div>
+          </div>
+          <div class="chart-box">
+            <canvas id="chart-jp" width="180" height="180"></canvas>
+            <div><strong>판단(J) / 인식(P)</strong></div>
+            <div>${highlightPair('J', counts['J'], 'P', counts['P'])}</div>
+          </div>
+        </div>
+      `;
+      const resultDiv = document.getElementById('result');
+      resultDiv.innerHTML = chartHtml;
+      resultDiv.classList.remove('hidden');
+      document.getElementById('mbti-form').classList.add('hidden');
+      // 결과 광고 push
+      setTimeout(function() {
+        document.querySelectorAll('#result .adsbygoogle').forEach(function(el) {
+          if (window.adsbygoogle && Array.isArray(window.adsbygoogle)) {
+            window.adsbygoogle.push({});
+          }
+        });
+      }, 100);
+      renderDonutChart(
+        document.getElementById('chart-ei'),
+        ['E', 'I'],
+        [counts['E'], counts['I']],
+        ['#ffb347', '#7fcfff']
+      );
+      renderDonutChart(
+        document.getElementById('chart-sn'),
+        ['S', 'N'],
+        [counts['S'], counts['N']],
+        ['#ffd966', '#b4e197']
+      );
+      renderDonutChart(
+        document.getElementById('chart-tf'),
+        ['T', 'F'],
+        [counts['T'], counts['F']],
+        ['#b39ddb', '#ffb6b9']
+      );
+      renderDonutChart(
+        document.getElementById('chart-jp'),
+        ['J', 'P'],
+        [counts['J'], counts['P']],
+        ['#ff7f50', '#8dd3c7']
+      );
+    });
+    // 설문 페이지 광고 push (인트로 포함)
+    window.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.adsbygoogle').forEach(function(el) {
+        if (window.adsbygoogle && Array.isArray(window.adsbygoogle)) {
+          window.adsbygoogle.push({});
+        }
+      });
+    });
+  </script>
+</body>
+</html>
