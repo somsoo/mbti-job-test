@@ -519,6 +519,13 @@
     function showPage(type) {
       document.querySelectorAll('.question-page').forEach(page => page.classList.add('hidden'));
       document.getElementById('page-' + type).classList.remove('hidden');
+      setTimeout(function() {
+        document.querySelectorAll('#page-' + type + ' .adsbygoogle').forEach(function(el) {
+          if (window.adsbygoogle && Array.isArray(window.adsbygoogle)) {
+            window.adsbygoogle.push({});
+          }
+        });
+      }, 100);
     }
     function nextPage(current, next, numQuestions) {
       const names = [];
