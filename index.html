@@ -162,6 +162,10 @@
       padding: 20px 0 0 0;
       border-top: 1px solid #eee;
     }
+    #intro-page .adsbygoogle {
+      margin-bottom: 24px;
+      display: block;
+    }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -172,15 +176,7 @@
       <h1 id="main-title">MBTI 직장인 성향 검사</h1>
       <!-- 인트로 페이지 -->
       <section id="intro-page" class="question-page" aria-label="인트로">
-        <h2>환영합니다!</h2>
-        <p>
-          이 검사는 직장 내에서의 당신의 성향을 MBTI 방식으로 진단합니다.<br>
-          각 상황에 대해 본인에게 더 가까운 행동을 선택해 주세요.<br>
-          결과는 그래프와 해설로 제공됩니다.<br><br>
-          <strong>시작하기 버튼을 눌러주세요!</strong>
-        </p>
-        <button type="button" onclick="startSurvey()" aria-label="검사 시작하기">시작하기</button>
-        <!-- 직장인 MBTI 인트로 버튼 아래 -->
+        <!-- 광고를 환영합니다 위로 이동 -->
         <ins class="adsbygoogle"
           style="display:block"
           data-ad-client="ca-pub-2228289204702106"
@@ -190,6 +186,14 @@
         <script>
           (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
+        <h2>환영합니다!</h2>
+        <p>
+          이 검사는 직장 내에서의 당신의 성향을 MBTI 방식으로 진단합니다.<br>
+          각 상황에 대해 본인에게 더 가까운 행동을 선택해 주세요.<br>
+          결과는 그래프와 해설로 제공됩니다.<br><br>
+          <strong>시작하기 버튼을 눌러주세요!</strong>
+        </p>
+        <button type="button" onclick="startSurvey()" aria-label="검사 시작하기">시작하기</button>
       </section>
       <form id="mbti-form" autocomplete="off" aria-label="MBTI 설문지">
         <!-- EI -->
