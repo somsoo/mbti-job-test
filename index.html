@@ -258,15 +258,7 @@
               <label for="ei5e"><input id="ei5e" type="radio" name="ei5" value="E" /> 먼저 다가가서 말을 건다</label>
               <label for="ei5i"><input id="ei5i" type="radio" name="ei5" value="I" /> 조용히 지켜본다</label>
             </div>
-            <ins class="adsbygoogle"
-                style="display:block"
-                data-ad-client="ca-pub-2228289204702106"
-                data-ad-slot="8743043142"
-                data-ad-format="auto"
-                data-full-width-responsive="true"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
+            <div id="ad-survey"></div>
             <div class="question"><span class="question-number">6.</span>
               <span class="question-title">팀 프로젝트를 시작할 때 어떻게 준비하나요?</span>
               <label for="ei6e"><input id="ei6e" type="radio" name="ei6" value="E" /> 팀원들과 먼저 소통한다</label>
@@ -326,15 +318,7 @@
               <label for="sn5s"><input id="sn5s" type="radio" name="sn5" value="S" /> 현재 상황에 집중한다</label>
               <label for="sn5n"><input id="sn5n" type="radio" name="sn5" value="N" /> 미래의 가능성을 생각한다</label>
             </div>
-            <ins class="adsbygoogle"
-                style="display:block"
-                data-ad-client="ca-pub-2228289204702106"
-                data-ad-slot="8743043142"
-                data-ad-format="auto"
-                data-full-width-responsive="true"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
+            <div id="ad-survey"></div>
             <div class="question"><span class="question-number">6.</span>
               <span class="question-title">업무를 처리할 때 어떤 스타일인가요?</span>
               <label for="sn6s"><input id="sn6s" type="radio" name="sn6" value="S" /> 세부사항까지 꼼꼼히 본다</label>
@@ -394,15 +378,7 @@
               <label for="tf5t"><input id="tf5t" type="radio" name="tf5" value="T" /> 문제의 원인을 분석한다</label>
               <label for="tf5f"><input id="tf5f" type="radio" name="tf5" value="F" /> 관계 회복을 우선한다</label>
             </div>
-            <ins class="adsbygoogle"
-                style="display:block"
-                data-ad-client="ca-pub-2228289204702106"
-                data-ad-slot="8743043142"
-                data-ad-format="auto"
-                data-full-width-responsive="true"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
+            <div id="ad-survey"></div>
             <div class="question"><span class="question-number">6.</span>
               <span class="question-title">업무 처리 시 더 중시하는 것은?</span>
               <label for="tf6t"><input id="tf6t" type="radio" name="tf6" value="T" /> 효율성을 중시한다</label>
@@ -462,15 +438,7 @@
               <label for="jp5j"><input id="jp5j" type="radio" name="jp5" value="J" /> 충분히 고민하고 결정한다</label>
               <label for="jp5p"><input id="jp5p" type="radio" name="jp5" value="P" /> 빠르게 결정하고 필요하면 수정한다</label>
             </div>
-            <ins class="adsbygoogle"
-                style="display:block"
-                data-ad-client="ca-pub-2228289204702106"
-                data-ad-slot="8743043142"
-                data-ad-format="auto"
-                data-full-width-responsive="true"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
+            <div id="ad-survey"></div>
             <div class="question"><span class="question-number">6.</span>
               <span class="question-title">업무 공간이나 자료 정리에 대한 태도는?</span>
               <label for="jp6j"><input id="jp6j" type="radio" name="jp6" value="J" /> 자주 정리한다</label>
@@ -519,13 +487,17 @@
     function showPage(type) {
       document.querySelectorAll('.question-page').forEach(page => page.classList.add('hidden'));
       document.getElementById('page-' + type).classList.remove('hidden');
-      setTimeout(function() {
-        document.querySelectorAll('#page-' + type + ' .adsbygoogle').forEach(function(el) {
-          if (window.adsbygoogle && Array.isArray(window.adsbygoogle)) {
-            window.adsbygoogle.push({});
-          }
-        });
-      }, 100);
+      if (type === 'ei' || type === 'sn' || type === 'tf' || type === 'jp') {
+        reloadAds('#ad-survey', 'ca-pub-2228289204702106', '8743043142');
+      }
+      // 결과 페이지 상단 광고
+      if (type === 'resultup') {
+        reloadAds('#ad-resultup', 'ca-pub-2228289204702106', '4803798137');
+      }
+      // 결과 페이지 하단 광고
+      if (type === 'resultdown') {
+        reloadAds('#ad-resultdown', 'ca-pub-2228289204702106', '3171701006');
+      }
     }
     function nextPage(current, next, numQuestions) {
       const names = [];
@@ -725,20 +697,10 @@
         (counts['T'] > counts['F'] ? 'T' : 'F') +
         (counts['J'] > counts['P'] ? 'J' : 'P');
       let chartHtml = `
-        <ins class="adsbygoogle"
-            style="display:block"
-            data-ad-client="ca-pub-2228289204702106"
-            data-ad-slot="4803798137"
-            data-ad-format="auto"
-            data-full-width-responsive="true"></ins>
+        <div id="ad-resultup"></div>
         <h2>당신의 MBTI는 <span class="highlight">${mbti}</span>입니다!</h2>
         <div class="mbti-desc">${descriptions[mbti] || "아직 준비 중인 해설입니다."}</div>
-        <ins class="adsbygoogle"
-            style="display:block"
-            data-ad-client="ca-pub-2228289204702106"
-            data-ad-slot="3171701006"
-            data-ad-format="auto"
-            data-full-width-responsive="true"></ins>
+        <div id="ad-resultdown"></div>
         <div class="chart-container">
           <div class="chart-box">
             <canvas id="chart-ei" width="180" height="180"></canvas>
@@ -767,13 +729,6 @@
       resultDiv.innerHTML = chartHtml;
       resultDiv.classList.remove('hidden');
       document.getElementById('mbti-form').classList.add('hidden');
-      setTimeout(function() {
-        document.querySelectorAll('#result .adsbygoogle').forEach(function(el) {
-          if (window.adsbygoogle && Array.isArray(window.adsbygoogle)) {
-            window.adsbygoogle.push({});
-          }
-        });
-      }, 100);
       renderDonutChart(
         document.getElementById('chart-ei'),
         ['E', 'I'],
@@ -848,7 +803,25 @@
       const resultDiv = document.getElementById('result');
       resultDiv.innerHTML = chartHtml;
       resultDiv.classList.remove('hidden');
-    }
+    };
+    function reloadAds(containerSelector, adClient, adSlot) {
+      const container = document.querySelector(containerSelector);
+      if (container) {
+        // 기존 광고 태그 제거
+        container.innerHTML = '';
+        // 새 광고 태그 생성
+        const ins = document.createElement('ins');
+        ins.className = 'adsbygoogle';
+        ins.style.display = 'block';
+        ins.setAttribute('data-ad-client', adClient);
+        ins.setAttribute('data-ad-slot', adSlot);
+        ins.setAttribute('data-ad-format', 'auto');
+        ins.setAttribute('data-full-width-responsive', 'true');
+        container.appendChild(ins);
+        // 광고 스크립트 실행
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      }
+    };
   </script>
 </body>
 </html>
