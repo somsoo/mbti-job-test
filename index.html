@@ -807,11 +807,11 @@
               objectType: 'feed',
               content: {
                 title: '나의 MBTI 검사 결과',
-                description: `당신의 MBTI는 ${mbti}입니다! 검사 결과와 해설을 확인해보세요.`,
+                description: `나의 MBTI는 ${mbti}입니다! 검사 결과와 해설을 확인해보세요.`,
                 imageUrl: 'https://mbti-job-test.enjoy-onepage.com/images/mbti-og-image.png',
                 link: {
-                  mobileWebUrl: `https://mbti-job-test.enjoy-onepage.com/result?mbti=${mbti}`,
-                  webUrl: `https://mbti-job-test.enjoy-onepage.com/result?mbti=${mbti}`
+                  mobileWebUrl: `https://mbti-job-test.enjoy-onepage.com/?mbti=${mbti}`,
+                  webUrl: `https://mbti-job-test.enjoy-onepage.com/?mbti=${mbti}`
                 }
               },
               buttons: [
@@ -828,6 +828,27 @@
         }
       }, 200);
     });
+    window.addEventListener('DOMContentLoaded', function() {
+      const params = new URLSearchParams(window.location.search);
+      const mbti = params.get('mbti');
+      if (mbti) {
+        document.getElementById('intro-page').classList.add('hidden');
+        document.getElementById('mbti-form').classList.add('hidden');
+        showResultByMbti(mbti);
+      }
+    });
+  
+    function showResultByMbti(mbti) {
+      let chartHtml = `
+        <h2>당신의 MBTI는 <span class="highlight">${mbti}</span>입니다!</h2>
+        <div class="mbti-desc">${descriptions[mbti] || "아직 준비 중인 해설입니다."}</div>
+        <div class="chart-container"></div>
+        ${renderKakaoShare(mbti, descriptions[mbti] || "")}
+      `;
+      const resultDiv = document.getElementById('result');
+      resultDiv.innerHTML = chartHtml;
+      resultDiv.classList.remove('hidden');
+    }
   </script>
 </body>
 </html>
