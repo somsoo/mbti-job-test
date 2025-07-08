@@ -262,7 +262,7 @@
               <label for="ei5e"><input id="ei5e" type="radio" name="ei5" value="E" /> 먼저 다가가서 말을 건다</label>
               <label for="ei5i"><input id="ei5i" type="radio" name="ei5" value="I" /> 조용히 지켜본다</label>
             </div>
-            <div id="ad-survey"></div>
+            <div id="ad-ei1"></div>
             <div class="question"><span class="question-number">6.</span>
               <span class="question-title">팀 프로젝트를 시작할 때 어떻게 준비하나요?</span>
               <label for="ei6e"><input id="ei6e" type="radio" name="ei6" value="E" /> 팀원들과 먼저 소통한다</label>
@@ -288,7 +288,7 @@
               <label for="ei10e"><input id="ei10e" type="radio" name="ei10" value="E" /> 관심이 많다</label>
               <label for="ei10i"><input id="ei10i" type="radio" name="ei10" value="I" /> 별로 관심이 없다</label>
             </div>
-            <div id="ad-survey"></div>
+            <div id="ad-ei2"></div>
             <div id="alert-ei" class="alert-message hidden" role="alert"></div>
             <button type="button" onclick="nextPage('ei', 'sn', 10)" aria-label="다음(SN 파트로)">다음</button>
           </fieldset>
@@ -323,7 +323,7 @@
               <label for="sn5s"><input id="sn5s" type="radio" name="sn5" value="S" /> 현재 상황에 집중한다</label>
               <label for="sn5n"><input id="sn5n" type="radio" name="sn5" value="N" /> 미래의 가능성을 생각한다</label>
             </div>
-            <div id="ad-survey"></div>
+            <div id="ad-sn1"></div>
             <div class="question"><span class="question-number">6.</span>
               <span class="question-title">업무를 처리할 때 어떤 스타일인가요?</span>
               <label for="sn6s"><input id="sn6s" type="radio" name="sn6" value="S" /> 세부사항까지 꼼꼼히 본다</label>
@@ -349,6 +349,7 @@
               <label for="sn10s"><input id="sn10s" type="radio" name="sn10" value="S" /> 현재의 문제 해결에 집중한다</label>
               <label for="sn10n"><input id="sn10n" type="radio" name="sn10" value="N" /> 미래의 변화에 대비한다</label>
             </div>
+            <div id="ad-sn2"></div>
             <div id="alert-sn" class="alert-message hidden" role="alert"></div>
             <button type="button" onclick="nextPage('sn', 'tf', 10)" aria-label="다음(TF 파트로)">다음</button>
           </fieldset>
@@ -383,7 +384,7 @@
               <label for="tf5t"><input id="tf5t" type="radio" name="tf5" value="T" /> 문제의 원인을 분석한다</label>
               <label for="tf5f"><input id="tf5f" type="radio" name="tf5" value="F" /> 관계 회복을 우선한다</label>
             </div>
-            <div id="ad-survey"></div>
+            <div id="ad-tf1"></div>
             <div class="question"><span class="question-number">6.</span>
               <span class="question-title">업무 처리 시 더 중시하는 것은?</span>
               <label for="tf6t"><input id="tf6t" type="radio" name="tf6" value="T" /> 효율성을 중시한다</label>
@@ -409,7 +410,7 @@
               <label for="tf10t"><input id="tf10t" type="radio" name="tf10" value="T" /> 솔직하게 말한다</label>
               <label for="tf10f"><input id="tf10f" type="radio" name="tf10" value="F" /> 상대의 기분을 배려한다</label>
             </div>
-            <div id="ad-survey"></div>
+            <div id="ad-tf2"></div>
             <div id="alert-tf" class="alert-message hidden" role="alert"></div>
             <button type="button" onclick="nextPage('tf', 'jp', 10)" aria-label="다음(JP 파트로)">다음</button>
           </fieldset>
@@ -444,7 +445,7 @@
               <label for="jp5j"><input id="jp5j" type="radio" name="jp5" value="J" /> 충분히 고민하고 결정한다</label>
               <label for="jp5p"><input id="jp5p" type="radio" name="jp5" value="P" /> 빠르게 결정하고 필요하면 수정한다</label>
             </div>
-            <div id="ad-survey"></div>
+            <div id="ad-jp1"></div>
             <div class="question"><span class="question-number">6.</span>
               <span class="question-title">업무 공간이나 자료 정리에 대한 태도는?</span>
               <label for="jp6j"><input id="jp6j" type="radio" name="jp6" value="J" /> 자주 정리한다</label>
@@ -470,7 +471,7 @@
               <label for="jp10j"><input id="jp10j" type="radio" name="jp10" value="J" /> 불편함을 느낀다</label>
               <label for="jp10p"><input id="jp10p" type="radio" name="jp10" value="P" /> 새로운 기회로 생각한다</label>
             </div>
-            <div id="ad-survey"></div>
+            <div id="ad-jp2"></div>
             <div id="alert-jp" class="alert-message hidden" role="alert"></div>
             <button type="submit" aria-label="결과 보기">결과 보기</button>
           </fieldset>
@@ -494,16 +495,21 @@
     function showPage(type) {
       document.querySelectorAll('.question-page').forEach(page => page.classList.add('hidden'));
       document.getElementById('page-' + type).classList.remove('hidden');
-      if (type === 'ei' || type === 'sn' || type === 'tf' || type === 'jp') {
-        reloadAds('#ad-survey', 'ca-pub-2228289204702106', '8743043142');
+      if (type === 'ei') {
+        reloadAds('#ad-ei1', 'ca-pub-2228289204702106', '8743043142');
+        reloadAds('#ad-ei2', 'ca-pub-2228289204702106', '8743043142');
       }
-      // 결과 페이지 상단 광고
-      if (type === 'resultup') {
-        reloadAds('#ad-resultup', 'ca-pub-2228289204702106', '4803798137');
+      if (type === 'sn') {
+        reloadAds('#ad-sn1', 'ca-pub-2228289204702106', '8743043142');
+        reloadAds('#ad-sn2', 'ca-pub-2228289204702106', '8743043142');
       }
-      // 결과 페이지 하단 광고
-      if (type === 'resultdown') {
-        reloadAds('#ad-resultdown', 'ca-pub-2228289204702106', '3171701006');
+      if (type === 'tf') {
+        reloadAds('#ad-tf1', 'ca-pub-2228289204702106', '8743043142');
+        reloadAds('#ad-tf2', 'ca-pub-2228289204702106', '8743043142');
+      }
+      if (type === 'jp') {
+        reloadAds('#ad-jp1', 'ca-pub-2228289204702106', '8743043142');
+        reloadAds('#ad-jp2', 'ca-pub-2228289204702106', '8743043142');
       }
     }
     function nextPage(current, next, numQuestions) {
@@ -837,6 +843,11 @@
           };
         }
       }, 200);
+
+      // 결과 페이지 상단 광고
+      reloadAds('#ad-resultup', 'ca-pub-2228289204702106', '4803798137');
+      // 결과 페이지 하단 광고
+      reloadAds('#ad-resultdown', 'ca-pub-2228289204702106', '3171701006');
     });
     window.addEventListener('DOMContentLoaded', function() {
       const params = new URLSearchParams(window.location.search);
