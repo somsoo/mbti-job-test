@@ -28,6 +28,9 @@
   }
   </script>
   <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
     body {
       font-family: "Comic Sans MS", "Apple SD Gothic Neo", sans-serif;
       background-color: #fff8f0;
@@ -61,10 +64,17 @@
     }
     .question {
       margin-bottom: 15px;
-      padding: 10px;
+      padding: 10px 16px;
       background-color: #fff;
       border-radius: 10px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      word-break: break-word;
+    }
+    .question label,
+    .question input,
+    .question button {
+      max-width: 100%;
+      box-sizing: border-box;
     }
     .question-number {
       display: inline-block;
