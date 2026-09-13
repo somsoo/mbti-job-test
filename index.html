@@ -534,8 +534,14 @@
 
 </main>
   <script>
-    // 카카오 SDK 초기화 (본인의 JavaScript 키로 교체)
-    Kakao.init('b157f51afb710d60c8b6bec3dc9a2d1f');
+    // 카카오 SDK 안전 초기화 (네트워크/광고차단 방어)
+    try {
+      if (typeof Kakao !== 'undefined' && !Kakao.isInitialized()) {
+        Kakao.init('b157f51afb710d60c8b6bec3dc9a2d1f');
+      }
+    } catch(e) {
+      console.warn('Kakao SDK initialization deferred or blocked:', e);
+    }
 
     function startSurvey() {
       document.getElementById('intro-page').classList.add('hidden');
@@ -868,30 +874,47 @@
         const shareBtn = document.getElementById('kakao-share-btn');
         if (shareBtn) {
           shareBtn.onclick = function() {
-            Kakao.Share.sendDefault({
-              objectType: 'feed',
-              content: {
-                title: '나의 MBTI 검사 결과',
-                description: `나의 MBTI는 ${mbti}입니다! 검사 결과와 해설을 확인해보세요.`,
-                imageUrl: 'https://mbti-job-test.enjoy-onepage.com/images/mbti-og-image.png',
-                link: {
-                  mobileWebUrl: `https://mbti-job-test.enjoy-onepage.com/?mbti=${mbti}`,
-                  webUrl: `https://mbti-job-test.enjoy-onepage.com/?mbti=${mbti}`
-                }
-              },
-              buttons: [
-                {
-                  title: '나도 검사하기',
-                  link: {
-                    mobileWebUrl: 'https://mbti-job-test.enjoy-onepage.com/',
-                    webUrl: 'https://mbti-job-test.enjoy-onepage.com/'
-                  }
-                }
-              ]
-            });
+            try {
+              if (typeof Kakao !== 'undefined' && Kakao.Share) {
+                Kakao.Share.sendDefault({
+                  objectType: 'feed',
+                  content: {
+                    title: '나의 MBTI 검사 결과',
+                    description: `나의 MBTI는 ${mbti}입니다! 검사 결과와 해설을 확인해보세요.`,
+                    imageUrl: 'https://mbti-job-test.enjoy-onepage.com/images/mbti-og-image.png',
+                    link: {
+                      mobileWebUrl: `https://mbti-job-test.enjoy-onepage.com/?mbti=${mbti}`,
+                      webUrl: `https://mbti-job-test.enjoy-onepage.com/?mbti=${mbti}`
+                    }
+                  },
+                  buttons: [
+                    {
+                      title: '나도 검사하기',
+                      link: {
+                        mobileWebUrl: 'https://mbti-job-test.enjoy-onepage.com/',
+                        webUrl: 'https://mbti-job-test.enjoy-onepage.com/'
+                      }
+                    }
+                  ]
+                });
+              } else {
+                fallbackShareUrl();
+              }
+            } catch(err) {
+              fallbackShareUrl();
+            }
           };
         }
       }, 200);
+
+      function fallbackShareUrl() {
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(window.location.href);
+          alert('검사 결과 링크가 클립보드에 복사되었습니다!');
+        } else {
+          alert('주소창의 링크를 복사하여 공유해주세요.');
+        }
+      }
 
       // 결과 페이지 상단 광고
       reloadAds('#ad-resultup', 'ca-pub-2228289204702106', '4803798137');
