@@ -950,22 +950,7 @@
       resultDiv.innerHTML = chartHtml;
       resultDiv.classList.remove('hidden');
     };
-    function reloadAds(containerSelector, adClient, adSlot) {
-      const container = document.querySelector(containerSelector);
-      if (container) {
-        // 기존 광고 태그 제거
-        container.innerHTML = '';
-        // 새 광고 태그 생성
-        const ins = document.createElement('ins');
-        ins.className = 'adsbygoogle';
-        ins.style.display = 'block';
-        ins.setAttribute('data-ad-client', adClient);
-        ins.setAttribute('data-ad-slot', adSlot);
-        ins.setAttribute('data-ad-format', 'auto');
-        ins.setAttribute('data-full-width-responsive', 'true');
-        container.appendChild(ins);
-        // 광고 스크립트 실행
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
+    function reloadAds(containerSelector, adClient, adSlot) { /* Safe no-op: standard 3-slot layout handles monetization */ });
       }
     };
   </script>
