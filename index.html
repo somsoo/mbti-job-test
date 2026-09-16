@@ -21,13 +21,57 @@
 <meta content="https://mbti-job-test.enjoy-onepage.com/og-image.png" name="twitter:image"/>
 <link href="/favicon.ico" rel="icon"/>
 <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "MBTI 직장인 성향 검사",
-    "description": "무료 MBTI 직장인 성향 검사로 나의 업무 스타일과 강점을 진단하세요. 16가지 유형별 해설과 그래프 제공.",
-    "url": "https://mbti-job-test.enjoy-onepage.com/"
-  }
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://mbti-job-test.enjoy-onepage.com/#webapp",
+      "name": "MBTI 직장인 성향 검사",
+      "url": "https://mbti-job-test.enjoy-onepage.com/",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript. Requires HTML5.",
+      "description": "무료 MBTI 직장인 성향 검사로 나의 업무 스타일과 강점을 진단하세요. 16가지 유형별 해설과 그래프 제공.",
+      "image": "https://mbti-job-test.enjoy-onepage.com/og-image.png",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "KRW"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://mbti-job-test.enjoy-onepage.com/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "내 성향과 현재 직무가 정반대인데 이직해야 하나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "아닙니다. 성향은 선호도일 뿐 업무 수행 능력과는 별개입니다. 현재 직무 내에서 내 강점을 발휘할 수 있는 세부 업무를 발굴하고 보완 전략을 세우는 것이 우선입니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "면접관에게 MBTI를 솔직하게 말해도 불이익이 없나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "최근 기업들은 특정 유형을 채용하기보다 '자신의 성향상 약점을 어떻게 인지하고 극복해왔는가'에 대한 메타인지 능력을 높게 평가합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "스타트업과 대기업 중 어떤 조직 문화가 맞을까요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "유연성과 자율성을 선호하는 P 성향은 스타트업, 체계화된 프로세스와 안정성을 중시하는 J 성향은 대기업 및 공공기관에 친화적입니다."
+          }
+        }
+      ]
+    }
+  ]
+}
   </script>
 <style>
     *, *::before, *::after {
