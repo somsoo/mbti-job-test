@@ -1,46 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>MBTI 직장인 성향 검사 - 무료 온라인 테스트</title>
-    <link>https://mbti-job-test.enjoy-onepage.com/</link>
-    <description>MBTI 직장인 성향 검사 - 무료 온라인 테스트 실시간 온라인 도구 및 팩트 기반 전문 칼럼 피드</description>
-    <language>ko-KR</language>
-    <lastBuildDate>Sat, 12 Sep 2026 03:00:00 +0900</lastBuildDate>
-    <atom:link href="https://mbti-job-test.enjoy-onepage.com/rss.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>MBTI 직장인 성향 검사 - 무료 온라인 테스트</title>
-      <link>https://mbti-job-test.enjoy-onepage.com/</link>
-      <guid isPermaLink="true">https://mbti-job-test.enjoy-onepage.com/</guid>
-      <description>MBTI 직장인 성향 검사 - 무료 온라인 테스트 실시간 온라인 무료 도구 및 시뮬레이터</description>
-      <pubDate>Sat, 12 Sep 2026 00:00:00 +0900</pubDate>
-    </item>
-    <item>
-      <title>MBTI 직장인 성향 검사 - 무료 온라인 테스트 서비스 소개 및 산출 공식 안내</title>
-      <link>https://mbti-job-test.enjoy-onepage.com/about.html</link>
-      <guid isPermaLink="true">https://mbti-job-test.enjoy-onepage.com/about.html</guid>
-      <description>MBTI 직장인 성향 검사 - 무료 온라인 테스트의 데이터 처리 원칙, 공식 산출 로직 및 검증 기준입니다.</description>
-      <pubDate>Sat, 12 Sep 2026 01:00:00 +0900</pubDate>
-    </item>
-    <item>
-      <title>MBTI 직장인 성향 검사 - 무료 온라인 테스트 개인정보처리방침</title>
-      <link>https://mbti-job-test.enjoy-onepage.com/privacy.html</link>
-      <guid isPermaLink="true">https://mbti-job-test.enjoy-onepage.com/privacy.html</guid>
-      <description>MBTI 직장인 성향 검사 - 무료 온라인 테스트의 개인정보 보호 및 100% 브라우저 메모리 로컬 연산 보안 정책입니다.</description>
-      <pubDate>Sat, 12 Sep 2026 01:10:00 +0900</pubDate>
-    </item>
-    <item>
-      <title>MBTI 16가지 성격유형별 최적 직무 적성 매트릭스와 커리어 로드맵 | MBTI 직장인 성향 검사 - 무료 온라인 테스트</title>
-      <link>https://mbti-job-test.enjoy-onepage.com/guides/guide1.html</link>
-      <guid isPermaLink="true">https://mbti-job-test.enjoy-onepage.com/guides/guide1.html</guid>
-      <description>외향(E)/내향(I), 감각(S)/직관(N), 사고(T)/감정(F), 판단(J)/인식(P) 지표에 따른 천직 직업 분석입니다.</description>
-      <pubDate>Sat, 12 Sep 2026 02:00:00 +0900</pubDate>
-    </item>
-    <item>
-      <title>MBTI 주기능·부기능·열등기능 분석: 직장 내 스트레스 원인과 소통법 | MBTI 직장인 성향 검사 - 무료 온라인 테스트</title>
-      <link>https://mbti-job-test.enjoy-onepage.com/guides/guide2.html</link>
-      <guid isPermaLink="true">https://mbti-job-test.enjoy-onepage.com/guides/guide2.html</guid>
-      <description>겉으로 드러나는 4글자 이면에 숨겨진 인지 기능 위계(8 Functions)와 번아웃 대처법입니다.</description>
-      <pubDate>Sat, 12 Sep 2026 02:15:00 +0900</pubDate>
-    </item>
-  </channel>
+<channel>
+  <title>직장인 성향 검사 | 40문항 무료 테스트로 보는 일하는 방식 16유형</title>
+  <link>https://mbti-job-test.enjoy-onepage.com/</link>
+  <description>직장에서의 나를 떠올리며 40문항에 답하면 외향·내향, 감각·직관, 사고·감정, 판단·인식 네 지표로 일하는 방식을 보여 줍니다. 5:5는 직접 고르고, 답은 이 기기에만 저장.</description>
+  <language>ko-kr</language>
+  <atom:link href="https://mbti-job-test.enjoy-onepage.com/rss.xml" rel="self" type="application/rss+xml" />
+  <lastBuildDate>Wed, 30 Sep 2026 08:00:00 GMT</lastBuildDate>
+  <item>
+    <title>이용약관 | 직장인 성향 검사</title>
+    <link>https://mbti-job-test.enjoy-onepage.com/terms.html</link>
+    <guid>https://mbti-job-test.enjoy-onepage.com/terms.html</guid>
+    <description>재미와 자기 이해를 위한 자기 점검이며 심리 진단이나 채용 검사가 아닙니다.</description>
+    <pubDate>Wed, 30 Sep 2026 08:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>개인정보처리방침 | 직장인 성향 검사</title>
+    <link>https://mbti-job-test.enjoy-onepage.com/privacy.html</link>
+    <guid>https://mbti-job-test.enjoy-onepage.com/privacy.html</guid>
+    <description>고른 답은 이 브라우저에만 저장하며 운영자에게 보내지 않습니다.</description>
+    <pubDate>Wed, 30 Sep 2026 08:00:00 GMT</pubDate>
+  </item>
+</channel>
 </rss>
