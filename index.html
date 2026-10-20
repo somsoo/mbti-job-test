@@ -64,6 +64,7 @@
 <style>
 :root{--bg:#f4f6fb;--card:#fff;--ink:#141a33;--muted:#5b6380;--accent:#1d4ed8;--acc2:#f59e0b;--line:#e1e6f2;--r:#b91c1c}
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html,body{margin:0;max-width:100%;overflow-x:hidden}
 body{font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;word-break:keep-all;overflow-wrap:anywhere}
 .header{background:linear-gradient(135deg,#1e3a8a,#3b82f6);color:#fff;text-align:center;padding:26px 16px 22px}
@@ -114,6 +115,80 @@ legend{font-weight:700;padding:0 6px;font-size:.92rem;color:var(--muted)}
 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#141a33;color:#fff;padding:10px 18px;border-radius:999px;font-size:.9rem;opacity:0;pointer-events:none;transition:opacity .2s;z-index:50;max-width:90vw}
 .toast.show{opacity:1}
 @media (prefers-reduced-motion: reduce){.toast{transition:none}}
+
+/* Enhanced Professional UI & Accessibility */
+:root {
+  --brand: #2563eb;
+  --brand-hover: #1d4ed8;
+  --brand-light: #eff6ff;
+  --brand-border: #bfdbfe;
+  --shadow-card: 0 4px 14px rgba(20,26,51,0.08);
+}
+.opt {
+  display: flex; align-items: center; gap: 12px;
+  padding: 11px 14px; border: 2px solid #e2e8f0; border-radius: 12px;
+  margin: 8px 0; cursor: pointer; font-size: 1.02rem; min-height: 54px;
+  transition: all 0.15s ease; background: #ffffff;
+}
+.opt:hover { background: #f8fafc; border-color: #93c5fd; }
+.opt input {
+  margin: 0; width: 22px; height: 22px; flex: none;
+  accent-color: var(--brand); cursor: pointer;
+}
+.opt:has(input:checked) {
+  border-color: var(--brand); background: var(--brand-light);
+  box-shadow: 0 4px 12px rgba(37,99,235,0.12); color: #1e3a8a; font-weight: 700;
+}
+.opt span { flex: 1; line-height: 1.45; }
+
+/* Sticky Progress Bar */
+.sticky-progress-wrap {
+  position: sticky; top: 0; z-index: 40;
+  background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(8px);
+  border-bottom: 2px solid #bfdbfe; padding: 10px 16px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 12px;
+}
+.progress-inner { max-width: 1080px; margin: 0 auto; }
+.progress-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.progress-label { font-size: 0.95rem; font-weight: 800; color: var(--brand); display: flex; align-items: center; gap: 6px; }
+.progress-count { font-size: 1rem; font-weight: 900; color: #141a33; }
+.progress-bar-track { height: 10px; background: #e2e8f0; border-radius: 9999px; overflow: hidden; }
+.progress-bar-fill {
+  height: 100%; width: 0%;
+  background: linear-gradient(90deg, #2563eb 0%, #10b981 100%);
+  border-radius: 9999px; transition: width 0.3s ease;
+}
+
+/* Workplace Persona Result Card */
+.persona-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
+  border: 2px solid #bfdbfe; border-radius: 18px;
+  padding: 22px 18px; margin: 16px 0; box-shadow: 0 4px 14px rgba(37,99,235,0.08);
+  text-align: center;
+}
+.persona-badge {
+  display: inline-block; background: #2563eb; color: #ffffff;
+  font-size: 0.92rem; font-weight: 800; padding: 4px 14px;
+  border-radius: 9999px; margin-bottom: 10px;
+}
+.persona-title {
+  font-size: 1.5rem; font-weight: 900; color: #141a33;
+  margin: 4px 0 10px; letter-spacing: -0.01em; line-height: 1.35;
+}
+.persona-desc {
+  font-size: 1.02rem; color: #334155; line-height: 1.65;
+  margin: 0 0 16px; background: rgba(255,255,255,0.85);
+  padding: 12px 14px; border-radius: 12px; border: 1px solid #dbeafe;
+  text-align: left;
+}
+.persona-sections { display: flex; flex-direction: column; gap: 10px; text-align: left; }
+.p-sec {
+  background: #ffffff; border: 1px solid #bfdbfe; border-radius: 12px;
+  padding: 12px 14px;
+}
+.p-sec-h { font-size: 1rem; font-weight: 800; color: #1e40af; margin-bottom: 4px; display: flex; align-items: center; gap: 6px; }
+.p-sec-p { margin: 0; font-size: 0.95rem; color: #1e293b; line-height: 1.55; }
+
 </style>
 <style id="ad-cls-shield">
   .ad-bottom { min-height: 280px !important; }
@@ -164,6 +239,19 @@ legend{font-weight:700;padding:0 6px;font-size:.92rem;color:var(--muted)}
 </div>
 <!-- ADSENSE END: top -->
 
+<!-- STICKY PROGRESS BAR -->
+<div class="sticky-progress-wrap" id="sticky-progress">
+  <div class="progress-inner">
+    <div class="progress-header">
+      <span class="progress-label"><span>📊</span> 실시간 답변 진행률</span>
+      <span class="progress-count" id="progress-count">0 / 40문항 (0%)</span>
+    </div>
+    <div class="progress-bar-track">
+      <div class="progress-bar-fill" id="progress-bar-fill"></div>
+    </div>
+  </div>
+</div>
+
 <main class="wrap">
   <div class="grid2">
     <section class="card" id="quiz-card" aria-labelledby="in-h">
@@ -181,6 +269,12 @@ legend{font-weight:700;padding:0 6px;font-size:.92rem;color:var(--muted)}
       <div id="axes"></div>
       <div id="tie" class="tie" role="group" aria-live="polite" hidden></div>
       <div id="res" hidden>
+        <div class="persona-card" id="persona-card">
+          <div class="persona-badge" id="persona-badge">직장 내 핵심 강점</div>
+          <div class="persona-title" id="persona-title"></div>
+          <p class="persona-desc" id="persona-desc"></p>
+          <div class="persona-sections" id="persona-sections"></div>
+        </div>
         <div class="code" id="code"></div>
         <p class="hint" id="code-note"></p>
         <ul class="letters" id="letters"></ul>
@@ -370,6 +464,138 @@ legend{font-weight:700;padding:0 6px;font-size:.92rem;color:var(--muted)}
       box.appendChild(fs);
     });
   }
+  /* 16 Workplace Persona Profiles */
+  var WORK_PROFILES = {
+    ISTJ: {
+      title: '빈틈없는 원칙주의 실무 마스터',
+      badge: '체계와 신뢰의 프로',
+      desc: '철저한 데이터와 사내 규정에 기반해 업무를 완벽하게 완수하며, 팀의 약속과 납기를 목숨처럼 지키는 든든한 버팀목입니다.',
+      strength: '정확하고 치밀한 데이터 검증, 프로세스 표준화, 탁월한 마감 준수 능력',
+      teamwork: '모호한 지시보다는 명확한 마일스톤과 구체적인 피드백을 나눌 때 최고의 퍼포먼스를 냅니다.',
+      care: '모든 책임을 혼자 떠안으려 하지 말고 동료에게 업무를 적절히 위임하며 휴식을 챙기세요.'
+    },
+    ISFJ: {
+      title: '조용히 팀을 지탱하는 살림꾼 수호자',
+      badge: '헌신과 세심함의 프로',
+      desc: '동료들의 어려움을 묵묵히 살피고 프로젝트가 매끄럽게 돌아가도록 뒤에서 세심하게 지원하는 조직의 숨은 영웅입니다.',
+      strength: '디테일을 놓치지 않는 꼼꼼함, 동료 배려와 안정적인 서포트 역량',
+      teamwork: '보이지 않는 지원 업무에 대해 동료들이 진심 어린 감사를 표현해 줄 때 큰 활력을 얻습니다.',
+      care: '거절하지 못해 남의 일까지 도맡다가 번아웃이 올 수 있으니 업무 우선순위를 명확히 하세요.'
+    },
+    INFJ: {
+      title: '조직의 방향을 제시하는 통찰력 있는 전략가',
+      badge: '비전과 통찰의 프로',
+      desc: '단기 성과뿐 아니라 조직의 장기적 가치와 의미를 깊이 고민하며, 부드러운 카리스마로 사람들을 올바른 방향으로 이끕니다.',
+      strength: '본질을 꿰뚫는 전략적 통찰, 경청 기반의 갈등 조율, 장기적 비전 설계',
+      teamwork: '생각을 정리할 개인 시간을 존중받고, 아이디어의 깊이를 인정해 줄 때 빛납니다.',
+      care: '이상과 현실의 괴리로 지칠 수 있으니, 작은 실천 단위의 성취에 만족하는 여유를 가져보세요.'
+    },
+    INTJ: {
+      title: '거대한 밑그림을 현실로 만드는 아키텍트',
+      badge: '전략과 최적화의 프로',
+      desc: '비효율을 용납하지 않고 고도의 논리와 체계로 시스템을 개선하며, 장기적인 로드맵을 그려내는 뛰어난 설계자입니다.',
+      strength: '복잡한 구조의 단순화, 논리적 전략 수립, 높은 독립성과 문제 해결력',
+      teamwork: '직설적인 피드백이 악의가 아님을 동료들이 이해하고, 데이터와 팩트 기반으로 논의할 때 최적입니다.',
+      care: '비효율에 대한 답답함을 누그러뜨리고, 동료들의 감정선도 중요한 변수임을 감안하세요.'
+    },
+    ISTP: {
+      title: '위기 상황도 쿨하게 해결하는 만능 해결사',
+      badge: '실용과 효율의 프로',
+      desc: '말보다는 군더더기 없는 실력으로 증명하며, 긴급 장애나 돌발 기술 이슈 앞에서 냉철하고 침착하게 해법을 찾아냅니다.',
+      strength: '위기 대응 능력, 군더더기 없는 핵심 타격, 뛰어난 도구 활용 및 기술 적응력',
+      teamwork: '불필요한 회의를 최소화하고 자유로운 실행 권한을 줄 때 최고의 결과를 냅니다.',
+      care: '무관심해 보일 수 있는 태도를 조심하고, 협업 시 진행 상황을 간략히 공유해 주는 센스를 발휘하세요.'
+    },
+    ISFP: {
+      title: '팀에 유연성과 온기를 더하는 조화로운 실천가',
+      badge: '감각과 조화의 프로',
+      desc: '격식에 얽매이지 않고 유연하게 적응하며, 심미적 감각과 따뜻한 배려로 팀의 긴장감을 완화해 주는 편안한 동료입니다.',
+      strength: '탁월한 시각적·감각적 디테일, 온화한 태도, 변화에 대한 높은 수용성',
+      teamwork: '경쟁적인 압박보다는 자율성과 심리적 안전감이 확보된 환경에서 창의력이 폭발합니다.',
+      care: '갈등을 회피하려 속으로 삭이기 쉬우니, 불만이나 어려운 점은 그때그때 가볍게 표현하세요.'
+    },
+    INFP: {
+      title: '진정성과 가치를 추구하는 영감의 탐색가',
+      badge: '진정성과 창의의 프로',
+      desc: '단순한 수익을 넘어 "왜 이 일을 하는가"에 대한 가치를 중시하며, 독창적인 시각과 깊은 공감으로 팀에 새로운 영감을 불어넣습니다.',
+      strength: '독창적인 아이디어 기획, 깊이 있는 스토리텔링, 타인의 감정에 대한 뛰어난 공감',
+      teamwork: '비판을 인신공격으로 받아들이지 않도록 따뜻한 인정과 함께 건설적인 피드백을 주는 것이 좋습니다.',
+      care: '완벽주의로 마감이 늦어질 수 있으니 "완성된 것이 완벽한 것보다 낫다"는 마음으로 실행하세요.'
+    },
+    INTP: {
+      title: '끝없는 호기심의 논리적 브레인',
+      badge: '분석과 지적 탐구의 프로',
+      desc: '기존의 통념을 깨는 혁신적인 가설을 세우고, 복잡한 메커니즘을 끝까지 파고들어 논리적인 원리를 규명해 내는 지적 탐구자입니다.',
+      strength: '근본 원인 분석, 창의적인 논리 설계, 기존 방식에 얽매이지 않는 비판적 사고',
+      teamwork: '반복적인 루틴 업무보다는 지적 난도가 높은 과제를 맡길 때 압도적인 성과를 냅니다.',
+      care: '아이디어 구상에만 머물지 않고 실제 프로토타입이나 문서로 마무리하는 실행력을 더해보세요.'
+    },
+    ESTP: {
+      title: '현장을 발로 뛰는 저돌적 승부사',
+      badge: '실행과 행동의 프로',
+      desc: '탁상공론보다는 즉각적인 현장 검증을 선호하며, 빠른 상황 판단력과 대담한 협상력으로 가시적인 성과를 빠르게 쟁취합니다.',
+      strength: '순발력 넘치는 위기 대처, 뛰어난 영업·협상력, 두려움 없는 추진력',
+      teamwork: '지루한 문서 작업보다 현장 미팅이나 긴급 태스크포스(TF)에서 주도권을 줄 때 빛납니다.',
+      care: '단기 성과에 집중하다 장기 리스크를 간과할 수 있으니 꼼꼼한 동료와 크로스 체크하세요.'
+    },
+    ESFP: {
+      title: '사무실의 공기를 바꾸는 파워풀 비타민',
+      badge: '친화와 긍정의 프로',
+      desc: '긍정적인 에너지와 센스 있는 위트로 사무실 분위기를 활기차게 이끌며, 고객이나 파트너와의 소통에서 탁월한 친화력을 발휘합니다.',
+      strength: '탁월한 대인 관계 형성력, 실전 커뮤니케이션, 팀 사기 진작',
+      teamwork: '동료들과 활발하게 의견을 주고받으며 즉각적인 칭찬과 반응이 오가는 환경에서 신바람 나게 일합니다.',
+      care: '루틴한 행정 업무나 일정 관리를 놓치기 쉬우니 체크리스트 앱을 적극 활용하세요.'
+    },
+    ENFP: {
+      title: '불가능을 가능하게 만드는 아이디어 뱅크',
+      badge: '열정과 혁신의 프로',
+      desc: '새로운 프로젝트의 불씨를 지피는 뛰어난 기획자이자 스토리텔러로, 사람들을 설레게 하는 열정으로 팀을 한 방향으로 모읍니다.',
+      strength: '폭발적인 브레인스토밍, 신사업 기획, 탁월한 네트워킹과 동기부여',
+      teamwork: '자유로운 발상을 억누르지 않고, 뒷수습과 세부 실행을 도와줄 파트너와 짝을 이룰 때 환상적입니다.',
+      care: '벌여놓은 일이 너무 많아지면 피로감이 급증하니 한 번에 두세 개 핵심 과제에 집중하세요.'
+    },
+    ENTP: {
+      title: '판을 뒤흔드는 유쾌한 혁신 전략가',
+      badge: '도전과 기지의 프로',
+      desc: '"더 나은 방법은 없을까?" 끊임없이 질문하며 고정관념을 부수고, 날카로운 직관과 재치로 기발한 돌파구를 찾아냅니다.',
+      strength: '기존 체계에 대한 생산적 반박, 문제의 재정의, 뛰어난 피칭과 프레젠테이션',
+      teamwork: '건설적인 토론을 즐기므로, 의견 대립을 개인적 갈등으로 보지 않는 쿨한 문화가 어울립니다.',
+      care: '토론 과정에서 상대방의 감정이 다치지 않도록 쿠션어를 섞어주는 배려가 필요합니다.'
+    },
+    ESTJ: {
+      title: '결단력과 책임감으로 무장한 프로젝트 총괄자',
+      badge: '추진과 실행력의 프로',
+      desc: '명확한 목표를 세우고 우선순위에 따라 팀의 자원을 효율적으로 배분하며, 어떤 난관도 뚫고 목표를 기어코 달성하는 사령관입니다.',
+      strength: '목표 지향적 리더십, 조직화 및 프로세스 최적화, 신속한 의사결정',
+      teamwork: 'R&R(역할과 책임)이 명확하고 보고 체계가 투명한 조직에서 최대의 역량을 발휘합니다.',
+      care: '결과만 재촉하기보다는 과정 중인 동료들의 수고를 인정하는 따뜻한 한마디를 잊지 마세요.'
+    },
+    ESFJ: {
+      title: '팀의 사기를 북돋우는 따뜻한 소통 오피서',
+      badge: '협업과 배려의 프로',
+      desc: '조직 구성원 개개인의 상태를 섬세하게 살피고 유기적인 협업 분위기를 조성하며, 성실하고 책임감 있게 팀을 뒷받침합니다.',
+      strength: '탁월한 팀워크 빌딩, 안정적인 일정 조율, 성실한 업무 완수력',
+      teamwork: '팀원들의 노고에 대해 구체적으로 칭찬하고 서로 지지해 주는 문화 속에서 행복하게 몰입합니다.',
+      care: '동료의 부정적인 반응에 지나치게 상처받지 말고, 업무적 피드백과 개인에 대한 감정을 분리하세요.'
+    },
+    ENFJ: {
+      title: '사람을 성장시키는 감화형 리더',
+      badge: '성장과 코칭의 프로',
+      desc: '팀원 개개인의 잠재력을 발견해 성장하도록 돕고, 조직의 비전과 개인의 목표를 일치시키는 뛰어난 멘토이자 조력자입니다.',
+      strength: '탁월한 동기부여, 조직 내 합의 형성, 미래 인재 육성 역량',
+      teamwork: '수평적이면서도 상호 존중이 살아있는 환경에서 모두가 윈-윈하는 결과를 만듭니다.',
+      care: '모든 사람의 기대를 다 충족시킬 수는 없으므로 우선순위를 정해 에너지를 배분하세요.'
+    },
+    ENTJ: {
+      title: '압도적인 비전으로 시장을 제패하는 지휘관',
+      badge: '카리스마와 성취의 프로',
+      desc: '먼 미래를 내다보는 거시적 안목과 거침없는 추진력으로 복잡한 비즈니스 목표를 하나씩 정복해 나가는 타고난 리더입니다.',
+      strength: '장기적 전략 기획, 과감한 리소스 투입, 흔들리지 않는 목표 달성 의지',
+      teamwork: '속도감 있고 도전적인 과제를 주도할 때, 유능한 동료들과의 시너지가 극대화됩니다.',
+      care: '속도가 느린 동료를 다그치기보다는 그들의 페이스를 조율하고 경청하는 여유를 가져보세요.'
+    }
+  };
+
   function render() {
     var rs = AXES.map(axisResult), answered = 0;
     rs.forEach(function (r) { answered += r.t.done; });
@@ -385,6 +611,9 @@ legend{font-weight:700;padding:0 6px;font-size:.92rem;color:var(--muted)}
       }
     }
     setText('progress', answered === AXES.length * N ? '40문항에 모두 답했습니다.' : '40문항 중 ' + answered + '문항에 답했습니다.');
+    var pct = Math.round((answered / (AXES.length * N)) * 100);
+    var pFill = $('progress-bar-fill'); if (pFill) pFill.style.width = pct + '%';
+    var pCount = $('progress-count'); if (pCount) pCount.textContent = answered + ' / 40문항 (' + pct + '%)';
     var ax = $('axes');
     if (ax) {
       ax.textContent = '';
@@ -417,6 +646,30 @@ legend{font-weight:700;padding:0 6px;font-size:.92rem;color:var(--muted)}
     var ul = $('letters'); if (ul) ul.textContent = '';
     if (done) {
       setText('code', code);
+      var prof = WORK_PROFILES[code] || {
+        title: '신뢰받는 직장인', badge: '프로페셔널', desc: '자신만의 고유한 업무 스타일과 강점으로 조직에 기여하는 프로페셔널입니다.',
+        strength: '책임감과 성실함으로 과업을 완수하는 능력',
+        teamwork: '동료들과 상호 존중을 바탕으로 한 협업',
+        care: '적절한 휴식과 일상 루틴으로 번아웃 예방하기'
+      };
+      setText('persona-badge', prof.badge);
+      setText('persona-title', prof.title);
+      setText('persona-desc', prof.desc);
+
+      var pSec = $('persona-sections');
+      if (pSec) {
+        pSec.innerHTML = '';
+        var items = [
+          { icon: '💼', title: '나의 핵심 업무 강점', text: prof.strength },
+          { icon: '🤝', title: '동료 및 팀 협업 시너지 팁', text: prof.teamwork },
+          { icon: '🌿', title: '번아웃 예방 및 멘탈 관리 팁', text: prof.care }
+        ];
+        items.forEach(function (item) {
+          var sc = el('div', 'p-sec');
+          sc.innerHTML = '<div class="p-sec-h">' + item.icon + ' ' + item.title + '</div><p class="p-sec-p">' + item.text + '</p>';
+          pSec.appendChild(sc);
+        });
+      }
       var picked = AXES.filter(function (x, i) { return rs[i].tie; }).map(function (x) { return label(ST.p[x.k]); });
       setText('code-note', picked.length ? '5:5였던 지표는 직접 고른 쪽으로 넣었습니다: ' + picked.join(', ') + '.' : '지표마다 더 많이 고른 쪽을 모았습니다.');
       AXES.forEach(function (x, i) {
